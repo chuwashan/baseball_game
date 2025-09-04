@@ -1,1 +1,7 @@
-
+{
+  "name": "baseball_game",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "echo \"No test specified\""
+  }
+}
