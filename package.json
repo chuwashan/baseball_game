@@ -1,1 +1,16 @@
-
+{
+  "name": "baseball_game",
+  "version": "1.0.0",
+  "description": "A simple text-based web game that simulates a dramatic baseball game.",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}

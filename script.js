@@ -1,7 +1,14 @@
-const startBtn = document.getElementById('startBtn');
-const log = document.getElementById('log');
-
-startBtn.addEventListener('click', startGame);
+// DOM elements may not exist in non-browser environments (e.g., tests)
+let startBtn;
+let log;
+if (typeof document !== 'undefined') {
+    startBtn = document.getElementById('startBtn');
+    log = document.getElementById('log');
+    startBtn.addEventListener('click', startGame);
+} else {
+    // Fallback object so functions can append text during tests
+    log = { textContent: '' };
+}
 
 function startGame() {
     log.textContent = '';
@@ -68,4 +75,9 @@ function describePlay(plays, runs) {
 
 function logLine(text) {
     log.textContent += text + '\n';
+}
+
+// Export functions for testing in Node environment
+if (typeof module !== 'undefined') {
+    module.exports = { randomRuns, describePlay };
 }
