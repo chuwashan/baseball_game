@@ -1,0 +1,17 @@
+body {
+    font-family: monospace;
+    background-color: #f0f0f0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+#log {
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    height: 400px;
+    overflow-y: scroll;
+}
