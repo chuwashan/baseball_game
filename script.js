@@ -12,7 +12,6 @@ if (typeof document !== 'undefined') {
 
 function startGame() {
     log.textContent = '';
-    let inning = 1;
     let homeScore = 0;
     let awayScore = 0;
     const plays = [
@@ -26,7 +25,8 @@ function startGame() {
         'grounds into a double play'
     ];
 
-    while (true) {
+    const MAX_INNINGS = 12;
+    for (let inning = 1; inning <= MAX_INNINGS && (inning <= 9 || homeScore === awayScore); inning++) {
         logLine(`Inning ${inning}`);
         // Top half
         let awayRuns = randomRuns();
@@ -45,16 +45,15 @@ function startGame() {
         } else {
             logLine('Bottom: Home team does not bat.');
         }
-
-        if (inning >= 9 && homeScore !== awayScore) {
-            break; // game decided
-        }
-        inning++;
     }
 
     logLine('\nFinal Score - Away ' + awayScore + ', Home ' + homeScore);
-    const winner = homeScore > awayScore ? 'Home' : 'Away';
-    logLine(`${winner} team wins in dramatic fashion!`);
+    if (homeScore === awayScore) {
+        logLine('The game ends in a tie after extra innings.');
+    } else {
+        const winner = homeScore > awayScore ? 'Home' : 'Away';
+        logLine(`${winner} team wins in dramatic fashion!`);
+    }
 }
 
 function randomRuns() {
